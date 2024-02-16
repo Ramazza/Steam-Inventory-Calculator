@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.item-wrapper {
+   display: grid;
+   grid-template-columns: repeat(5, 1fr);
+}
+
+.item {
+    /* background-color: chocolate; */
+}
+
+.item > img {
+    width: 150px;
+}
