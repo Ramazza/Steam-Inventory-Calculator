@@ -3,7 +3,7 @@ import "./styles.css";
 
 function Items() {
     
-    const url = 'https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=76561198073034521&language=portuguese&currency=BRL';
+    const url = 'https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=76561198073034521&currency=BRL';
     
     const [items, setItems] = useState({
         valor: [],
@@ -49,10 +49,10 @@ function Items() {
             <div className="item-wrapper">
                 {items.nome.map((itemName, index) => (
                     <div className="item" key={index}>
-                        <h4>{items.valor[index]}</h4>
-                        <img src={items.imgURL[index]} alt="" />
-                        <h3>{itemName}</h3>
-                        <p>{items.raridade[index]}</p>
+                        <h4 className="valor">{`R$` + items.valor[index]}</h4>
+                        <img className="imagem" src={items.imgURL[index]} alt="" />
+                        <h4 className="nome">{itemName}</h4>
+                        {/* <p className="raridade">{items.raridade[index]}</p> */}
                     </div>
                 ))}
             </div>

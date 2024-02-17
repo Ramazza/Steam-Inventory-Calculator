@@ -5,17 +5,16 @@ import Items from "./item/item";
 function MainPage() {
 
     return(
-
         <>
-            <span>{}</span>
             <div className="wrapper">
-                <aside></aside>
-                <main className="teste">
+                <aside className="aside">
+                    <p></p>
+                </aside>
+                <main className="main">
                     <Items/>
                 </main>
             </div>
         </>
-
     );
 
 }

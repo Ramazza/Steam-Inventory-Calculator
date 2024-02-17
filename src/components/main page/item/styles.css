@@ -7,12 +7,40 @@
 .item-wrapper {
    display: grid;
    grid-template-columns: repeat(5, 1fr);
+   gap: 0.5rem;
+   padding: 20px;
 }
 
 .item {
-    /* background-color: chocolate; */
+    height: 35vh;
+    background-color: chocolate;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-.item > img {
-    width: 150px;
+.item > .valor {
+    text-align: left;
+    padding: 5px 0 5px 10px;
+    background-color: chocolate;
 }
+
+.item > .imagem {
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+    background-color: chocolate;
+}
+
+.item > .nome {
+    font-size: 1rem;
+    text-align: center;
+    padding: 5px 0 5px 0px;
+    background-color: chocolate;
+}
+
+/* .item > .raridade {
+    background-color: chocolate;
+    text-align: center;
+    padding-bottom: 5px;
+} */
+

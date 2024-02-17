@@ -4,8 +4,19 @@
     text-decoration: none;
 }
 
-.teste {
-    /* display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-    background-color: blue; */
+.wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.aside {
+    width: 30vw;
+    background-color: lightcoral;
+    padding-right: 10px;
+}
+
+.main {
+    background-color: lightgreen;
+    padding-top: 0;
+
 }
