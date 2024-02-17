@@ -13,34 +13,34 @@
 
 .item {
     height: 35vh;
-    background-color: chocolate;
+    /* background-image: radial-gradient(circle at 50% 100%, rgba(211, 44, 230, 0.19), transparent 150%);
+    border-bottom: 5px solid rgba(211, 44, 230, 0.5); */
     border-radius: 10px;
     overflow: hidden;
+    color: white;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25);
+}
+
+.item:hover {
+    transform: scale(1.02);
 }
 
 .item > .valor {
     text-align: left;
     padding: 5px 0 5px 10px;
-    background-color: chocolate;
+    background-color: transparent;
 }
 
 .item > .imagem {
     width: 200px;
     display: block;
     margin: 0 auto;
-    background-color: chocolate;
+    background-color: transparent;
 }
 
 .item > .nome {
     font-size: 1rem;
     text-align: center;
     padding: 5px 0 5px 0px;
-    background-color: chocolate;
+    background-color: transparent;
 }
-
-/* .item > .raridade {
-    background-color: chocolate;
-    text-align: center;
-    padding-bottom: 5px;
-} */
-
