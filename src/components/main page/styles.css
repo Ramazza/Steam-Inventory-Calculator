@@ -11,8 +11,11 @@
 
 .aside {
     width: 30vw;
-    background-color: lightcoral;
     padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .main {

@@ -1,6 +1,8 @@
 import React from "react";
 import "./styles.css";
 import Items from "./item/item";
+import Profile from "./profile/profile";
+import Friends from "./friends/friends";
 
 function MainPage(props) {
 
@@ -8,12 +10,14 @@ function MainPage(props) {
         <>
             <div className="wrapper">
                 <aside className="aside">
-                    <p>Preciso de uma barra de pesquisa para poder pesquisar outro usuario</p>
-                    <p>Preciso do avatar</p>
-                    <p>Preciso do nome do perfil</p>
-                    <p>Preciso do stem id</p>
-                    <p>Preciso mostrar o valor da conta</p>
-                    <p>Preciso mostrar 5 amigos da conta</p>
+                    <div className="id-input">
+                        <input type="text" placeholder="Nome Steam/SteamID"/>
+                        <button>calcular</button>
+                    </div>
+                    <Profile steamId={props.steamId}/>
+                    <p>account value</p>
+                    <p>Amigos</p>
+                    <Friends steamId={props.steamId}/>
                 </aside>
                 <main className="main">
                     <Items steamId={props.steamId}/>

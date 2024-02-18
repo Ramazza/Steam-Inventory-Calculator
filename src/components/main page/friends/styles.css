@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.friend-wrapper {
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    /* justify-content: center; */
+}
+
+.friend-wrapper > h2 {
+
+}
+
+.friend-wrapper > img {
+    width: 100px;
+}

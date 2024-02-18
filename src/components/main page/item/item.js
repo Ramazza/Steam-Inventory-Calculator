@@ -3,9 +3,6 @@ import "./styles.css";
 
 function Items(props) {
     
-    //const url = 'https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=76561198073034521&currency=BRL';
-    //const url = 'https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=76561198835900666&currency=BRL';
-    //const url = 'https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=76561198994437904&currency=BRL';
     const url = `https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=${props.steamId}&currency=BRL`
 
     const [items, setItems] = useState({
@@ -88,9 +85,10 @@ function Items(props) {
             <div className="item-wrapper">
                 {items.nome.map((itemName, index) => (
                     <div className="item" style={{ 
-                        backgroundImage: `radial-gradient(circle at 50% 100%, ${getRarityColor(items.raridade[index])}, transparent 150%)`,
-                        borderBottom: `5px solid ${getRarityColor(items.raridade[index], 0.5)}`}} 
-                    key={index}>
+                    backgroundImage: `radial-gradient(circle at 50% 100%, ${getRarityColor(items.raridade[index])}, transparent 150%)`,
+                    borderBottom: `5px solid ${getRarityColor(items.raridade[index], 0.5)}`}} 
+                    key={index}
+                    >
                         <h4 className="valor">{`R$` + items.valor[index]}</h4>
                         <img className="imagem" src={items.imgURL[index]} alt="" />
                         <h4 className="nome">{itemName}</h4>
