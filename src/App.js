@@ -7,15 +7,17 @@ import MainPage from './components/main page/main_page';
 function App() {
 
   const [newPage, setNewPage] = useState(true);
+  const [steamId, setSteamId] = useState('');
 
-  const calcular = () => {
+  const calcular = (id) => {
     setNewPage(!newPage);
+    setSteamId(id);
   }
 
   return (
     <>
       <div>
-        {newPage ? <FirstPage onButtonClick={calcular}/> : <MainPage />}
+        {newPage ? <FirstPage onButtonClick={calcular}/> : <MainPage steamId={steamId}/>}
       </div>
     </>
   );

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./styles.css";
 
-function Items() {
+function Items(props) {
     
     //const url = 'https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=76561198073034521&currency=BRL';
     //const url = 'https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=76561198835900666&currency=BRL';
-    const url = 'https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=76561198994437904&currency=BRL';
-
+    //const url = 'https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=76561198994437904&currency=BRL';
+    const url = `https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=${props.steamId}&currency=BRL`
 
     const [items, setItems] = useState({
         valor: [],
@@ -15,13 +15,6 @@ function Items() {
         raridade: []
     });
     
-    // purple #292337
-    // blue #212b3e
-    // light blue #212b41
-    // grey #212b41
-    // purple? #7f506f
-    // red #523d34
-
     function getRarityColor(rarity, aplpha = 0.19) {
         switch (rarity) {
             // Guns
@@ -76,15 +69,13 @@ function Items() {
               };
   
               data.forEach(item => {
-                  updatedItems.valor.push(item.priceavg);
+                  updatedItems.valor.push(item.pricelatestsell);
                   updatedItems.imgURL.push(item.image);
                   updatedItems.nome.push(item.marketname);
                   updatedItems.raridade.push(item.rarity);
               });
 
               setItems(updatedItems);
-        
-              console.log(updatedItems);
 
         }
     
