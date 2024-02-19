@@ -8,6 +8,8 @@ function MainPage(props) {
 
     const [accountValue, SetAccountValue] = useState(0)
     const [inputValue, setInputValue] = useState(props.steamId || "");
+    const [errorItem, setErrorItem] = useState(null);
+    const [errorFriend, setErrorFriend] = useState(null);
 
     useEffect(() => {
         setInputValue(props.steamId || "");
@@ -20,7 +22,17 @@ function MainPage(props) {
     const handleCalculate = () => {
         const newSteamId = document.querySelector(".id-input input").value;
         setInputValue(newSteamId);
-      };
+        setErrorItem(null);
+        setErrorFriend(null);
+    };
+
+    const HandleErrorItems = (errorMessage) => {
+        setErrorItem(errorMessage);
+    }
+
+    const handleErrorFriends = (errorMessage) => {
+        setErrorFriend(errorMessage);
+    }    
 
     return(
         <>
@@ -40,10 +52,10 @@ function MainPage(props) {
                         <h1>Amigos</h1>
                         <div className="div2"></div>
                     </div>
-                    <Friends steamId={inputValue}/>
+                    {errorFriend ? <p>Conta privada 😔</p> : <Friends steamId={inputValue} onError={handleErrorFriends}/>}
                 </aside>
                 <main className="main">
-                    <Items steamId={inputValue} onTotalValue={handleTotalValue}/>
+                    {errorItem ? <p>Conta privada 😔</p> : <Items steamId={inputValue} onTotalValue={handleTotalValue} onError={HandleErrorItems}/>} 
                 </main>
             </div>
         </>

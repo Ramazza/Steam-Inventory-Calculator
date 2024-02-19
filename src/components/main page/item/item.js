@@ -3,9 +3,7 @@ import "./styles.css";
 
 function Items(props) {
     
-    const url = `https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=${props.steamId}&currency=BRL`
-
-    console.log(props.steamId)
+    const url = `https://www.steamwebapi.com/steam/api/inventory?key=RZGWZ6YA77ECUAAI&steam_id=${props.steamId}&currency=BRL`
 
     const [items, setItems] = useState({
         valor: [],
@@ -13,6 +11,7 @@ function Items(props) {
         nome: [],
         raridade: [],
     });
+    const [error, setError] = useState(null);
     
     function getRarityColor(rarity, aplpha = 0.19) {
         switch (rarity) {
@@ -57,27 +56,35 @@ function Items(props) {
 
         async function getData() {
         
-            const response = await fetch(url);
-            const data = await response.json();
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+    
+                const updatedItems = {
+                    valor: [],
+                    imgURL: [],
+                    nome: [],
+                    raridade: [],
+                };
+      
+                data.forEach(item => {
+                    updatedItems.valor.push(item.pricelatestsell);
+                    updatedItems.imgURL.push(item.image);
+                    updatedItems.nome.push(item.marketname);
+                    updatedItems.raridade.push(item.rarity);
+                });
+    
+                const sum = updatedItems.valor.reduce((acc, curr) => acc + parseFloat(curr), 0);
+                props.onTotalValue(sum.toFixed(2)); 
+    
+                setItems(updatedItems);  
+                //setError(null)
 
-            const updatedItems = {
-                valor: [],
-                imgURL: [],
-                nome: [],
-                raridade: [],
-              };
-  
-              data.forEach(item => {
-                  updatedItems.valor.push(item.pricelatestsell);
-                  updatedItems.imgURL.push(item.image);
-                  updatedItems.nome.push(item.marketname);
-                  updatedItems.raridade.push(item.rarity);
-              });
-
-              const sum = updatedItems.valor.reduce((acc, curr) => acc + parseFloat(curr), 0);
-              props.onTotalValue(sum.toFixed(2)); 
-
-              setItems(updatedItems);
+            } catch (error) {
+                setError(error.message);
+                props.onError(error.message); 
+                console.log(`Fetch error: ${error}`);
+            }
 
         }
     

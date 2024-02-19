@@ -3,7 +3,7 @@ import "./styles.css";
 
 function Profile(props) {
     
-    const url = `https://www.steamwebapi.com/steam/api/profile?key=NVEJ8DCC922B0VZT&id=${props.steamId}`;
+    const url = `https://www.steamwebapi.com/steam/api/profile?key=RZGWZ6YA77ECUAAI&id=${props.steamId}`;
 
     const [name, setName] = useState('');
     const [avatar, setAvatar] = useState('');

@@ -3,33 +3,38 @@ import "./styles.css";
 
 function Friends(props) {
 
-    //friends url 
-    //https://www.steamwebapi.com/steam/api/friendlist?key=NVEJ8DCC922B0VZT&id=76561198012345678&parse=1&no_cache=1&sort_by=1
-
-    const url = `https://www.steamwebapi.com/steam/api/friendlist?key=NVEJ8DCC922B0VZT&id=${props.steamId}&parse=1&no_cache=1&sort_by=random`
+    const url = `https://www.steamwebapi.com/steam/api/friendlist?key=RZGWZ6YA77ECUAAI&id=${props.steamId}&parse=1&no_cache=1&sort_by=random`
 
     const [avatar, setAvatar] = useState([]);
     const [name, setName] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() =>{
 
         async function getData() {
             
-            const response = await fetch(url);
-            const data = await response.json();
-           
-            const firstFiveNames = data.slice(0, 5).map(entry => entry.personaname);
-            const firstFiveAvatars = data.slice(0, 5).map(entry => entry.avatarfull);
-    
-            setName(firstFiveNames);
-            setAvatar(firstFiveAvatars);
+            try {
+
+                const response = await fetch(url);
+                const data = await response.json();
+               
+                const firstFiveNames = data.slice(0, 5).map(entry => entry.personaname);
+                const firstFiveAvatars = data.slice(0, 5).map(entry => entry.avatarfull);
+        
+                setName(firstFiveNames);
+                setAvatar(firstFiveAvatars);
+
+            } catch (error) {
+                setError(error.message);
+                props.onError(error.message); 
+                console.log(`Fetch error: ${error}`);
+            }
+
         }
 
         getData();
 
     }, [url])
-
-   
 
     return(
         <>
