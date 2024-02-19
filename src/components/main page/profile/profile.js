@@ -10,22 +10,23 @@ function Profile(props) {
     const [steamId, setSteamId] = useState('');
     const [profileUrl, setProfileUrl] = useState('');
 
-
-    async function getData() {
-        
-        const response = await fetch(url);
-        const data = await response.json();
-
-        setName(data.personaname)
-        setAvatar(data.avatarfull)
-        setSteamId(data.steamid)
-        setProfileUrl(data.profileurl)
-
-    }
-
     useEffect(() => {
+
+        async function getData() {
+            
+            const response = await fetch(url);
+            const data = await response.json();
+    
+            setName(data.personaname)
+            setAvatar(data.avatarfull)
+            setSteamId(data.steamid)
+            setProfileUrl(data.profileurl)
+    
+        }
+
         getData();
-    }, []);
+
+    }, [url])
 
     return(
         <>

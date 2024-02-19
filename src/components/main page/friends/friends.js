@@ -11,22 +11,25 @@ function Friends(props) {
     const [avatar, setAvatar] = useState([]);
     const [name, setName] = useState([]);
 
-    async function getData() {
-        
-        const response = await fetch(url);
-        const data = await response.json();
-       
-        const firstFiveNames = data.slice(0, 5).map(entry => entry.personaname);
-        const firstFiveAvatars = data.slice(0, 5).map(entry => entry.avatarfull);
+    useEffect(() =>{
 
-        setName(firstFiveNames);
-        setAvatar(firstFiveAvatars);
+        async function getData() {
+            
+            const response = await fetch(url);
+            const data = await response.json();
+           
+            const firstFiveNames = data.slice(0, 5).map(entry => entry.personaname);
+            const firstFiveAvatars = data.slice(0, 5).map(entry => entry.avatarfull);
+    
+            setName(firstFiveNames);
+            setAvatar(firstFiveAvatars);
+        }
 
-    }
-
-    useEffect(() => {
         getData();
-    }, []);
+
+    }, [url])
+
+   
 
     return(
         <>

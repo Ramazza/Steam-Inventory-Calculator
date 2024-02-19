@@ -5,6 +5,8 @@ function Items(props) {
     
     const url = `https://www.steamwebapi.com/steam/api/inventory?key=NVEJ8DCC922B0VZT&steam_id=${props.steamId}&currency=BRL`
 
+    console.log(props.steamId)
+
     const [items, setItems] = useState({
         valor: [],
         imgURL: [],
