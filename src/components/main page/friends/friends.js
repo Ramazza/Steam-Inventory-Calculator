@@ -22,9 +22,6 @@ function Friends(props) {
         setName(firstFiveNames);
         setAvatar(firstFiveAvatars);
 
-        console.log(avatar)
-        console.log(name)
-
     }
 
     useEffect(() => {
@@ -33,12 +30,14 @@ function Friends(props) {
 
     return(
         <>
-            {name.map((friend, index) => (
-                <div className="friend-wrapper" key={index}>
-                    <img src={avatar[index]} alt={`Avatar of ${friend}`} />
-                    <h2>{friend}</h2>
-                </div>
-            ))}
+            <div className="friends-wrapper">
+                {name.map((friend, index) => (
+                    <div className="friend" key={index}>
+                        <img src={avatar[index]} alt={`Avatar of ${friend}`} />
+                        <h2>{friend}</h2>
+                    </div>
+                ))}
+            </div>
         </>
     )
 

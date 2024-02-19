@@ -4,17 +4,20 @@
     text-decoration: none;
 }
 
-.friend-wrapper {
+.friends-wrapper {
     display: flex;
-    /* flex-direction: column; */
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.friend {
+    display: flex;
     align-items: center;
-    /* justify-content: center; */
+    gap: 1rem;
+    color: #6f7573;
 }
 
-.friend-wrapper > h2 {
-
-}
-
-.friend-wrapper > img {
-    width: 100px;
+.friend > img {
+    width: 50px;
+    border-radius: 5px;
 }

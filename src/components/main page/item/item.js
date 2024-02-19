@@ -9,7 +9,7 @@ function Items(props) {
         valor: [],
         imgURL: [],
         nome: [],
-        raridade: []
+        raridade: [],
     });
     
     function getRarityColor(rarity, aplpha = 0.19) {
@@ -62,7 +62,7 @@ function Items(props) {
                 valor: [],
                 imgURL: [],
                 nome: [],
-                raridade: []
+                raridade: [],
               };
   
               data.forEach(item => {
@@ -72,10 +72,14 @@ function Items(props) {
                   updatedItems.raridade.push(item.rarity);
               });
 
+              const sum = updatedItems.valor.reduce((acc, curr) => acc + parseFloat(curr), 0);
+              props.onTotalValue(sum.toFixed(2)); 
+
               setItems(updatedItems);
 
         }
     
+
         getData()
     
     }, [url]);

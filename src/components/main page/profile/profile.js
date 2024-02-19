@@ -31,12 +31,12 @@ function Profile(props) {
         <>
             <div className="profile-wrapper">
                 <a href={profileUrl} target="blank">
-                    <h2>{name}</h2>
+                    <h2 className="profile-name">{name}</h2>
                 </a>
                 <a href={profileUrl} target="blank">
-                    <img src={avatar} alt="Profile Avatar" />
+                    <img className="profile-avatar" src={avatar} alt="Profile Avatar" />
                 </a>
-                <h3>{steamId}</h3>
+                <h3 className="profile-steamid">{steamId}</h3>
             </div>
         
         </>
