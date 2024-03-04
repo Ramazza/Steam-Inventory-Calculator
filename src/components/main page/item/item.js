@@ -3,7 +3,7 @@ import "./styles.css";
 
 function Items(props) {
     
-    const url = `https://www.steamwebapi.com/steam/api/inventory?key=RZGWZ6YA77ECUAAI&steam_id=${props.steamId}&currency=BRL`
+    const url = `https://www.steamwebapi.com/steam/api/inventory?key=KTOSODJ0A3SVTTU9&steam_id=${props.steamId}&currency=BRL`
 
     const [items, setItems] = useState({
         valor: [],
@@ -66,7 +66,7 @@ function Items(props) {
                     nome: [],
                     raridade: [],
                 };
-      
+    
                 data.forEach(item => {
                     updatedItems.valor.push(item.pricelatestsell);
                     updatedItems.imgURL.push(item.image);
