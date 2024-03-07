@@ -30,3 +30,15 @@ a {
 .profile-steamid {
     color: #6f7573;
 }
+
+@media (max-width: 415px) {
+    
+    .profile-avatar {
+        width: 90%;
+    }
+
+    .profile-steamid {
+        font-size: 1rem;
+    }
+
+}

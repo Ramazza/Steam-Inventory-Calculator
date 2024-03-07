@@ -21,3 +21,15 @@
     width: 50px;
     border-radius: 5px;
 }
+
+@media (max-width: 415px) {
+    
+    .friend > img {
+        width: 45px;
+    }   
+
+    .friend > h2 {
+        font-size: 1rem;
+    }
+
+}

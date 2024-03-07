@@ -14,10 +14,12 @@ main {
 }
 
 main > h1 {
+    text-align: center;
     color: #fff;
 }
 
 main > p {
+    text-align: center;
     padding: 1rem 0 2rem 0;
     color: #6f7573;
 }
@@ -45,4 +47,16 @@ main > p {
 
 .input-wrapper > button:hover{
     color: #3979df;
+}
+
+@media (max-width: 415px) {
+
+    main > p{
+        width: 80vw;
+    }
+
+    .input-wrapper > input {
+        width: 70vw;
+    }
+
 }

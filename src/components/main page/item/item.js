@@ -5,6 +5,8 @@ function Items(props) {
     
     const url = `https://www.steamwebapi.com/steam/api/inventory?key=KTOSODJ0A3SVTTU9&steam_id=${props.steamId}&currency=BRL`
 
+    const [loading, setLoading] = useState(true);
+
     const [items, setItems] = useState({
         valor: [],
         imgURL: [],
@@ -57,6 +59,9 @@ function Items(props) {
         async function getData() {
         
             try {
+
+                setLoading(true);
+
                 const response = await fetch(url);
                 const data = await response.json();
     
@@ -78,7 +83,7 @@ function Items(props) {
                 props.onTotalValue(sum.toFixed(2)); 
     
                 setItems(updatedItems);  
-                //setError(null)
+                setLoading(false);
 
             } catch (error) {
                 setError(error.message);
@@ -92,6 +97,10 @@ function Items(props) {
         getData()
     
     }, [url]);
+
+    if (loading) {
+        return <div className="loading">Carregando...</div>; 
+    }
 
     return (
         <>
